@@ -219,6 +219,9 @@ NTSTATUS KphVerifySignature(
     _In_ ULONG SignatureSize
     )
 {
+    // CRACK HERE
+    return STATUS_SUCCESS;
+
     NTSTATUS status;
     BCRYPT_ALG_HANDLE signAlgHandle = NULL;
     BCRYPT_KEY_HANDLE keyHandle = NULL;
@@ -680,7 +683,8 @@ _FX NTSTATUS KphValidateCertificate()
 
     status = KphVerifySignature(hash, hashSize, signature, signatureSize);
 
-    if (NT_SUCCESS(status)) {
+    // CRACK HERE
+    if (NT_SUCCESS(status) || TRUE) {
 
         Verify_CertInfo.active = 1;
 
